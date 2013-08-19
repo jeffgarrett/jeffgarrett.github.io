@@ -1,0 +1,9 @@
+---
+layout: post
+title: "btrfs root!"
+date: 2010-04-04
+comments: false
+---
+
+<div class='post'>
+My desktop now has btrfs as a root filesystem.  I largely followed <a href='http://ubuntu-ky.ubuntuforums.org/showthread.php?p=8784127'>this guide</a>.  I used a lucid (daily build) live cd to get the job done.  I didn't reinstall, so I had to resize partitions to get a separate /boot (parted doesn't do this anymore, but gparted does).  My kernel is a custom kernel with btrfs as a module, so that was good.  But the update-initramfs doesn't remake initrds for kernels not installed via package (ya ya, I should use a package), so one has to do that specially.  Also, the root device as specified in grub's config needs to change for the new UUID.  With those caveats, the guide worked perfectly.<br/><br/>Here are the bonnie numbers:<br/><br/><code><pre><br/>                             btrfs <br/>Sequential Output (Char)       238<br/>Sequential Output (Block)    48884<br/>Sequential Output (Rewrite)  31956<br/>Sequential Input (Char)       4596<br/>Sequential Input (Block)     89337<br/>Random Seeks                   114<br/></pre></code><br/><br/>Again, the sequential output may or may not make sense, but it is consistent with the previous number.  The sequential input number is way too high, as my disk shouldn't be able of reading more than 75MB/sec (so says hdparm).  I'm starting to lose faith in bonnie...<br/><br/>I tried to rebalance, but I got an oops...  So that's not working for now.<br/><br/>I'll play with this for a while before I consider putting it on my NAS. :)</div>

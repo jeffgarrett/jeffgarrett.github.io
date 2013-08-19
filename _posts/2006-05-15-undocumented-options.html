@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Undocumented options!"
+date: 2006-05-15
+comments: false
+categories:
+ - Webservers
+ - Revision Control
+---
+
+<div class='post'>
+SVN has this wonderful idea where if you want to access a module in a repository you just stick it at the end of the URL, so you get something like http://site.com/repository/module.  Should you ever need to know which part is the repository and which part is the module you are screwed, as each of these parts can themselves have slashes.<br/><br/>Of course, usually you don't care.  You know what you want and you know where it is.  But if you were trying to import into another version control system (say because you find it easier to use), you might.  There's a nice tool called <code>tailor</code> which does this.  So you might decide to use it.  It works by getting the changesets from the old (say SVN) repository and then applying them in the new repository.  But the changesets have paths relative to the repository root.  That means that <code>tailor</code> has to strip off the "module" part of the paths, and for that <code>tailor</code> must know which part of the URL is the module part.<br/><br/>It has a very simplistic way of doing this.  You have to <em>tell</em> it which part is which.  To check you, it will test to make sure the repository root you give it is actually valid.  Now, a webserver I encountered last night wasn't properly configured, and as a result <code>tailor</code> thought that test failed.  At this point it bails, and tells me <em>I</em> screwed up.<br/><br/>That is, it bails unless you put the option "<code>trust-root = True</code>" in the config file.  That option tells <code>tailor</code> to trust that I have given it the correct repository root.  Unfortunately this option is documented neither in the command line help nor in the man page.<br/><br/>Aren't undocumented options grand!</div>

@@ -1,0 +1,9 @@
+---
+layout: post
+title: "So much for btrfs..."
+date: 2010-04-17
+comments: false
+---
+
+<div class='post'>
+On the initial kernel I used for install, I couldn't do a rebalance of the data (kernel oops)...<br/><br/>A new kernel wouldn't boot claiming fsck errors.  Turned out to be a malformed udevadm install.<br/><br/>And to top it off, X stopped working.<br/><br/>I reformatted as ext3, fixed the udevadm, and reinstalled the mesa, drm, and X packages, and all works fine.<br/><br/>I'm not sure if the second and third problems had anything to do with btrfs, and I've seen no other signs of corruption.  But given that I'm always running bleeding edge kernels, even the oops is disheartening.<br/><br/>Seems like a good idea, but I'll wait before putting it on my root again (or on my NAS)...</div>

@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Robust buildout"
+date: 2013-02-03
+comments: false
+categories:
+ - Divsie
+ - WebDevelopment
+---
+
+<div class='post'>
+If you followed the pyramid instructions from <a href="http://blog.jgarrett.org/2013/01/app-engine-and-pyramid.html">a previous post</a>, you have a buildout.cfg file which lists package dependencies. Unfortunately, buildout by default lacks some reproducibility. <a href="http://maurits.vanrees.org/weblog/archive/2008/01/easily-creating-repeatable-buildouts">Follow these instructions</a>&nbsp;to specify the exact versions of the packages to use, which can be determined with the following command:<br /><br /><div style="overflow: hidden; white-space: nowrap;"><pre style="overflow-x: scroll;"><code>bin/buildout -Novvvvv|sed -ne 's/^Picked: //p'|sort -u</code></pre></div><br /><div><br /></div></div>

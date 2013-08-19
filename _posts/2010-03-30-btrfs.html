@@ -1,0 +1,9 @@
+---
+layout: post
+title: "btrfs"
+date: 2010-03-30
+comments: false
+---
+
+<div class='post'>
+Thinking about taking the leap to btrfs...   Here are some bonnie++ numbers for ext3 & btrfs filesystems mounted via loopback, as well as the raw underlying filesystem (ext3):<br/><br/><tt><pre>                              ext3  btrfs    raw<br/>Sequential Output (Char)       491    309    790<br/>Sequential Output (Block)    78512  50047  58462<br/>Sequential Output (Rewrite)  28843  32065  31820<br/>Sequential Input (Char)       2200   3887   2725<br/>Sequential Input (Block)     70306  79169  78204<br/>Random Seeks                   156    114    175<br/></pre></tt><br/><br/>Nothing too interesting, but it looks like sequential input performed well.  Sequential output didn't (but the ext3/loopback did much better than ext3/raw, so maybe it's just noise?).</div>
