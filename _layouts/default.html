@@ -18,11 +18,50 @@
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
   <body>
-    <div class="left-nav container" style="width: 25%; background-color: #f7f7ff; position: fixed; height: 100%; text-align: center; padding-top: 40px">
+    <style type="text/css">
+        .left-nav {
+            width: 25%;
+            background-color: hsl(247, 100%, 30%);
+            color: white; position: fixed; height: 100%; text-align: center; 
+            padding-top: 40px;
+            overflow: hidden;
+        }
+
+        .left-nav a, .left-nav a:hover {
+            color: white;
+        }
+
+        .right-col {
+            margin-left: 25%;
+        }
+
+        .photo img {
+            border-radius: 20%;
+            width: 144px;
+            height: 144px;
+            margin-bottom: 40px;
+            box-shadow: 0px 0px 18px hsl(0, 100%, 100%);
+        }
+
+        @media screen and (max-width: 700px) {
+            .left-nav {
+                width: 100%;
+                position: relative;
+            }
+
+            .right-col {
+                margin-left: 0px;
+            }
+        }
+    </style>
+    <div class="left-nav container">
+        <div class="photo">
+        <img src="https://lh5.googleusercontent.com/-dB8HVD-Svys/Tqrv-AuGAfI/AAAAAAAAEVQ/Qb8QswD4eOI/s288/CameraBag_Photo_1003.jpg">
+    </div>
             <a href="/">Home</a>
     </div>
     <div class="container">
-    <div style="margin-left: 25%">
+        <div class="right-col">
 {{content}}
     </div>
 </div>
