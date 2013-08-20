@@ -9,7 +9,9 @@ title: Welcome
 
 {% for post in paginator.posts %}
     <h2 style="font-size: 24px"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-    <p>{{ post.excerpt }}</p>
+    <div style="margin-bottom: 40px">
+        {{ post.excerpt }}
+    </div>
 {% endfor %}
 
 <ul class="pager">
