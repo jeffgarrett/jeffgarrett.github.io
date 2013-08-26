@@ -1,3 +1,2 @@
 permalink: /:year/:month/:title.html
 paginate: 20
-url: http://jeffgarrett.github.io/
